@@ -1,0 +1,17 @@
+[general]
+name=Filtro Catastale Avanzato
+description=Plugin per interrogare i layer catastali per foglio e particella
+version=1.0
+qgisMinimumVersion=3.0
+author=Stefano Gregori
+email=sgregori@regione.umbria.it
+
+[about]
+description=Questo plugin permette di individuare la geometria della particella catastale selezionando il layer del Comune desiderato (_ple), il numero di Foglio ed il numero di Particella.
+    L'individuazione della geometria viene evidenziata da un effetto visivo di lampeggio.
+version=1.0
+author=Stefano Gregori
+icon=resources/icon.png
+
+[changelog]
+1.0=Prima versione del plugin
