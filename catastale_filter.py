@@ -52,7 +52,8 @@ class CatastaleFilterPlugin:
                     except Exception as e:
                         iface.messageBar().pushMessage("Errore", f"Errore nel reload: {str(e)}", level=Qgis.Critical)
                 else:
-                    iface.messageBar().pushMessage("Errore", message, level=Qgis.Critical)
+                    iface.messageBar().pushMessage("Info", message, level=Qgis.Info)
+                    
         except Exception as e:
             iface.messageBar().pushMessage("Errore", f"Errore durante l'esecuzione: {str(e)}", level=Qgis.Critical)
 
