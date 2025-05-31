@@ -24,7 +24,9 @@ da eseguire dopo l'importazione dei layers catastali.
 - le tabelle dei layers *_map* e *_ple* devono contenere il campo INSPIREID_LOCALID
 - qualora tali specifiche formali (oltre che sostanziali, relativamente al contenuto di INSPIREID_LOCALID) dovessero cambiare, il plugin dovrà essere adeguato 😉
 
+![immagine](https://github.com/user-attachments/assets/642a3411-17a5-490a-90f1-dc35d1e9239e)
 
+![immagine](https://github.com/user-attachments/assets/100bd255-75bd-401a-a83d-3580db2232a1)
 
 
 
