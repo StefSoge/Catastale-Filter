@@ -1,10 +1,7 @@
 # Catastale Filter
 ### Plugin di QGIS per interrogare i layer catastali per comune, foglio e particella
 
-Questo plugin utilizza i files dei dati catastali dei Comuni italiani forniti 
-dal plugin **Italy Inspire Cadastre Downloader** di Geoinnova  
-per l'effettuazione di ricerche per Comune, Foglio, Particella ed individuazione della geometria
-della particella nel layer, con evidenziazione mediante effetto visivo lampeggiante. 
+Questo plugin utilizza i files dei dati catastali dei Comuni italiani forniti dal plugin **Italy Inspire Cadastre Downloader** di Geoinnova per l'effettuazione di ricerche per Comune, Foglio, Particella ed individuazione della geometria della particella nel layer, con evidenziazione mediante effetto visivo lampeggiante. 
 I layers dei dati catastali vengono preliminarmente elaborati dalla apposita funzione *Prepara layers _ple*.
 
 ### Istruzioni
