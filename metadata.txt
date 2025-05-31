@@ -1,17 +1,51 @@
 [general]
-name=Filtro Catastale Avanzato
-description=Plugin per interrogare i layer catastali per foglio e particella
-version=1.0
-qgisMinimumVersion=3.0
+name=Catastale Filter
+email=stefanog@sogemait3.it
 author=Stefano Gregori
-email=sgregori@regione.umbria.it
+qgisMinimumVersion=3.16
+description=Ricerca particella catastale per Comune, Foglio, Particella.
+about=Questo plugin utilizza i files dei dati catastali dei Comuni italiani forniti 
+		dal plugin Italy Inspire Cadastre Downloader di Geoinnova (https://github.com/geoinnova/italy_inspire_cadastre_downloader) 
+		per l'effettuazione di ricerche comune/foglio/particella ed individuazione 
+		della particella nel layer con evidenziazione mediante effetto visivo di lampeggio. 
+		I layer *_ple vengono rielaborati dalla apposita funzione 'Prepara layers _ple' 
+		da eseguire dopo l'importazione dei layers catastali.
 
-[about]
-description=Questo plugin permette di individuare la geometria della particella catastale selezionando il layer del Comune desiderato (_ple), il numero di Foglio ed il numero di Particella.
-    L'individuazione della geometria viene evidenziata da un effetto visivo di lampeggio.
-version=1.0
-author=Stefano Gregori
-icon=resources/icon.png
+version=version 1.1
+tracker=https://github.com/StefSoge/catastale_filter
+repository=https://github.com/StefSoge/catastale_filter
 
-[changelog]
-1.0=Prima versione del plugin
+; end of mandatory metadata
+
+; start of optional metadata
+category=Catasto
+changelog=
+    1.1 - Integrazione funzione di Preparazione layer _ple (31/05/2025)
+	1.0 - Prima versione del plugin.
+
+; Tags are in comma separated value format, spaces are allowed within the
+; tag name.
+; Tags should be in English language. Please also check for existing tags and
+; synonyms before creating a new one.
+tags=comunei,catasto,foglio,particella
+
+; these metadata can be empty, they will eventually become mandatory.
+homepage=https://github.com/StefSoge/catastale_filter
+icon=icon.png
+
+; experimental flag (applies to the single version)
+experimental=True
+
+; deprecated flag (applies to the whole plugin and not only to the uploaded version)
+deprecated=False
+
+; if empty, it will be automatically set to major version + .99
+;qgisMaximumVersion=3.99
+
+; Since QGIS 3.8, a comma separated list of plugins to be installed
+; (or upgraded) can be specified.
+; The example below will try to install (or upgrade) "MyOtherPlugin" version 1.12
+; and any version of "YetAnotherPlugin".
+; Both "MyOtherPlugin" and "YetAnotherPlugin" names come from their own metadata's
+; name field
+;plugin_dependencies=Dipende dai files scaricati dal plugin Italy Inspire Cadastre Downloader di Geoinnova
