@@ -74,8 +74,6 @@ class CatastaleFilterPlugin:
 def classFactory(iface):
     return CatastaleFilterPlugin(iface)
 
-
-
 class BlinkSelectionManager:
     def __init__(self):
         self.timer = None
@@ -166,6 +164,38 @@ class CatastaleFilterDialog(QDialog):
         
         self.setLayout(layout)
     
+    def get_foglio_field_name(self, layer_name):
+        """Restituisce il nome corretto del campo foglio, provando entrambe le varianti"""
+        # Primo tentativo: con replace
+        foglio_field = f"{layer_name.replace('_ple','_map')}_LABEL"
+        
+        # Verifica se esiste nel layer o nei join
+        if self.current_layer:
+            all_fields = self.get_all_available_fields()
+            if foglio_field in all_fields:
+                return foglio_field
+        
+        # Secondo tentativo: semplice map_LABEL
+        return "map_LABEL"
+    
+    def get_all_available_fields(self):
+        """Restituisce tutti i campi disponibili (layer + join)"""
+        if not self.current_layer:
+            return []
+            
+        field_names = [field.name() for field in self.current_layer.fields()]
+        joined_fields = []
+        
+        # Ottieni tutti i campi dai join
+        for join in self.current_layer.vectorJoins():
+            join_layer = join.joinLayer()
+            if join_layer:
+                prefix = join.prefix() if hasattr(join, 'prefix') else ""
+                joined_fields.extend([f"{prefix}{field.name()}" 
+                                   for field in join_layer.fields()])
+        
+        return field_names + joined_fields
+    
     def filter_layer(self):
         try:
             self.blink_manager.stop_blinking()
@@ -192,22 +222,9 @@ class CatastaleFilterDialog(QDialog):
                 self.reset_filter()
                 return
             
-            # Costruisci il nome del campo foglio con replace
-            foglio_field = f"{layer_name.replace('_ple','_map')}_LABEL"
-            
-            # Verifica se il campo esiste nel layer O nei joined fields
-            field_names = [field.name() for field in self.current_layer.fields()]
-            joined_fields = []
-            
-            # Ottieni tutti i campi dai join
-            for join in self.current_layer.vectorJoins():
-                join_layer = join.joinLayer()
-                if join_layer:
-                    prefix = join.prefix() if hasattr(join, 'prefix') else ""
-                    joined_fields.extend([f"{prefix}{field.name()}" 
-                                       for field in join_layer.fields()])
-            
-            all_fields = field_names + joined_fields
+            # Ottieni il nome corretto del campo foglio
+            foglio_field = self.get_foglio_field_name(layer_name)
+            all_fields = self.get_all_available_fields()
             
             expression_parts = []
             if foglio:
@@ -269,4 +286,3 @@ class CatastaleFilterDialog(QDialog):
         """Pulizia quando la finestra viene chiusa"""
         self.blink_manager.stop_blinking()
         super().closeEvent(event)
-

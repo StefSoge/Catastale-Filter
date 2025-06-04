@@ -11,7 +11,7 @@ about=Questo plugin utilizza i files dei dati catastali dei Comuni italiani forn
 		I layer *_ple vengono rielaborati dalla apposita funzione 'Prepara layers _ple' 
 		da eseguire dopo l'importazione dei layers catastali.
 
-version=version 1.1
+version=version 1.2
 tracker=https://github.com/StefSoge/catastale_filter
 repository=https://github.com/StefSoge/catastale_filter
 
@@ -20,7 +20,8 @@ repository=https://github.com/StefSoge/catastale_filter
 ; start of optional metadata
 category=Catasto
 changelog=
-    1.1 - Integrazione funzione di Preparazione layer _ple (31/05/2025)
+	    1.2 - Adeguamento fieldName Foglio (1/06/2025)
+	    1.1 - Integrazione funzione di Preparazione layer _ple (31/05/2025)
 	1.0 - Prima versione del plugin.
 
 ; Tags are in comma separated value format, spaces are allowed within the
